@@ -8,11 +8,19 @@ import { Component } from '@angular/core';
 })
 export class AuthorsComponent {
 title :string ='List of authors';
-authors:string[] =[]
+authors:string[] =[];
+email:string='';
+imageUrl ="https://images.unsplash.com/photo-1682687980961-78fa83781450?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8"
 constructor(private coursesService:CoursesService){
   this.authors = coursesService.getService()
 }
-getTitle(){
 
+onSave($event:Event){
+console.log("Button clicked",$event)
+}
+
+
+onKeyPress():void{
+  console.log(this.email)
 }
 }

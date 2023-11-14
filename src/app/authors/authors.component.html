@@ -2,4 +2,14 @@
 <h1>{{title}}</h1>
 <div *ngFor="let author of authors" >
     <p>{{author}}</p>
+
 </div>
+
+<div>
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+      </div>
+      <button type="button" class="btn btn-warning" (click)="onSave($event)">Save</button>
+</div>
+<br>
+<input type="email" class="form-control" [(ngModel)]="email"  placeholder="Enter email" (keyUp.enter)="onKeyPress()">
