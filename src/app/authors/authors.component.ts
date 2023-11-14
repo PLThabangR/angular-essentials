@@ -1,3 +1,4 @@
+import { CoursesService } from './../services/courses.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,8 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AuthorsComponent {
 title :string ='List of authors';
-authors :string[]=["John","Happy","Jacob"]
-
+authors:string[] =[]
+constructor(private coursesService:CoursesService){
+  this.authors = coursesService.getService()
+}
 getTitle(){
 
 }
