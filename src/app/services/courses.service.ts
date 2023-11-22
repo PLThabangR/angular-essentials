@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CoursesService {
-  authors :string[]=["John","Happy","Jacob"]
+  authors :string[]=[""]
   constructor() { }
   getService(){
     return this.authors;
