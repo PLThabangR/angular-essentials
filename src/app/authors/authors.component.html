@@ -1,24 +1,18 @@
-<p>This is the authors component</p>
-<h1 >{{title}}</h1>
-
-<div  *ngFor="let author of authors" >
-    <p>{{author}}</p>
-
+<div class="container">
+    <form #loginForm="ngForm" (ngSubmit)="login()" >
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+         
+          <input required  [(ngModel)]="credentials.email" type="email" name="email" #email="ngModel"  class="form-control" id="email" aria-describedby="email">
+          <div id="email" class="form-text">We'll never share your email with anyone else.</div>
+          <p *ngIf="email.invalid && email.touched"  class="alert alert-danger">Email is requred</p>
+        </div>
+        <div class="mb-3">
+          <label for="comment" class="form-label">Password</label>
+          <textarea required   [(ngModel)]="credentials.comment" name="comment" #comment="ngModel"  class="form-control" placeholder="Leave a comment here" id="comment" style="height:100px"></textarea>
+        </div>
+       
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+      </form>
 </div>
 
-<div>
-    <div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-      </div>
-      <button type="button" class="btn btn-warning" (click)="onSave($event)">Save</button>
-</div>
-<br>
-<input type="email" class="form-control" [(ngModel)]="email"  placeholder="Enter email" (keyUp.enter)="onKeyPress()">
-<span class="glyphicon"></span>
-
-<div *ngIf="course.length>0; else noCourses">
-    List of courses
-</div>
-<ng-template #noCourses>
-No courses found
-</ng-template>
