@@ -1,15 +1,24 @@
 <div class="container">
     <form #loginForm="ngForm" (ngSubmit)="login()" >
         <div class="mb-3">
+            <label for="name" class="form-label">User name</label>
+           
+            <input  [(ngModel)]="credentials.email" type="text" name="name" class="form-control" id="name" aria-describedby="name">
+           
+           
+          </div>
+       
+       
+        <div class="mb-3">
           <label for="email" class="form-label">Email address</label>
          
-          <input required  [(ngModel)]="credentials.email" type="email" name="email" #email="ngModel"  class="form-control" id="email" aria-describedby="email">
+          <input type="email" name="email"  class="form-control" id="email" aria-describedby="email">
           <div id="email" class="form-text">We'll never share your email with anyone else.</div>
-          <p *ngIf="email.invalid && email.touched"  class="alert alert-danger">Email is requred</p>
+         
         </div>
         <div class="mb-3">
           <label for="comment" class="form-label">Password</label>
-          <textarea required   [(ngModel)]="credentials.comment" name="comment" #comment="ngModel"  class="form-control" placeholder="Leave a comment here" id="comment" style="height:100px"></textarea>
+          <textarea  name="comment"   class="form-control" placeholder="Leave a comment here" id="comment" style="height:100px"></textarea>
         </div>
        
         <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
